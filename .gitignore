@@ -1,0 +1,26 @@
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+/tmp/
+*.tmp
+*.log
+
+# Environment files
+.env
+
+# Uploaded images (keep placeholders)
+assets/images/*
+!assets/images/placeholder/
+!assets/images/watermark/
+assets/images/placeholder/*.jpg
+assets/images/placeholder/*.png
+!assets/images/placeholder/.gitkeep
