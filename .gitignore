@@ -17,6 +17,19 @@ Thumbs.db
 # Environment files
 .env
 
+# Config files with credentials (use .example.php files as templates)
+config/config.php
+config/database.php
+
+# Local development setup files
+LOCAL_SETUP_COMPLETE.md
+READ-ME-FIRST-RESTART-APACHE.md
+RESTART-APACHE-NOW.md
+FORCE-RESTART-APACHE.bat
+restart-apache.bat
+add-to-hosts.ps1
+RUN-AS-ADMIN-add-to-hosts.bat
+
 # Uploaded images (keep placeholders)
 assets/images/*
 !assets/images/placeholder/

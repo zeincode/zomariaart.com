@@ -55,7 +55,4 @@ Options -Indexes
     ExpiresByType application/javascript "access plus 1 month"
 </IfModule>
 
-# Disable PHP execution in uploads directory
-<Directory "assets/images">
-    php_flag engine off
-</Directory>
+# Note: PHP execution disabled in assets/images via Apache config (cannot use Directory in .htaccess)
