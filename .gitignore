@@ -34,6 +34,18 @@ RUN-AS-ADMIN-add-to-hosts.bat
 assets/images/*
 !assets/images/placeholder/
 !assets/images/watermark/
+!assets/images/gallery/
+!assets/images/studio/
+
+# Protect all uploaded artwork and studio photos
+assets/images/gallery/*
+assets/images/studio/*
+!assets/images/gallery/.gitkeep
+!assets/images/studio/.gitkeep
+
+# Keep placeholder structure files
 assets/images/placeholder/*.jpg
 assets/images/placeholder/*.png
 !assets/images/placeholder/.gitkeep
+!assets/images/placeholder/Zo_s_Logo.png
+!assets/images/placeholder/Studio (1).jpg

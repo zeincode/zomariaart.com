@@ -5,7 +5,7 @@
  */
 
 // Site settings
-define('SITE_NAME', "Zo's Art Gallery");
+define('SITE_NAME', "Zo Maria Art");
 define('SITE_URL', 'https://zomariaart.com'); // Update for production
 define('SITE_EMAIL', 'contact@zomariaart.com');
 
