@@ -24,30 +24,28 @@
     <header class="site-header">
         <nav class="navbar">
             <div class="container">
-                <a href="<?php echo BASE_URL; ?>index.php?page=home" class="logo">
-                    <h1><?php echo SITE_NAME; ?></h1>
-                </a>
-                
-                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                <div class="header-branding">
+                    <a href="<?php echo BASE_URL; ?>index.php?page=home" class="logo">
+                        <h1><?php echo SITE_NAME; ?></h1>
+                    </a>
+                    <p class="header-tagline">
+                        <?php echo $data['header_tagline'] ?? 'Echoes of Light — Current Exhibition'; ?>
+                    </p>
+                </div>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
-                
+
                 <ul class="nav-menu">
                     <li><a href="<?php echo BASE_URL; ?>index.php?page=home">Home</a></li>
                     <li><a href="<?php echo BASE_URL; ?>index.php?page=gallery">Gallery</a></li>
                     <li><a href="<?php echo BASE_URL; ?>index.php?page=teaching">Classes</a></li>
                     <li><a href="<?php echo BASE_URL; ?>index.php?page=about">About</a></li>
                     <li><a href="<?php echo BASE_URL; ?>index.php?page=contact">Contact</a></li>
-                    <li>
-                        <a href="<?php echo BASE_URL; ?>index.php?page=cart" class="cart-link">
-                            <span>Cart</span>
-                            <?php if (!empty($_SESSION['cart'])): ?>
-                                <span class="cart-count"><?php echo count($_SESSION['cart']); ?></span>
-                            <?php endif; ?>
-                        </a>
-                    </li>
+                    <li><a href="<?php echo BASE_URL; ?>index.php?page=cart">Cart</a></li>
                 </ul>
             </div>
         </nav>
