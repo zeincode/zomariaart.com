@@ -59,6 +59,16 @@ class Order {
     }
     
     /**
+     * Get orders by customer email
+     */
+    public function getByCustomerEmail($email) {
+        $sql = "SELECT * FROM orders WHERE customer_email = :email ORDER BY created_at DESC";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([':email' => $email]);
+        return $stmt->fetchAll();
+    }
+    
+    /**
      * Get order items
      */
     public function getItems($orderId) {

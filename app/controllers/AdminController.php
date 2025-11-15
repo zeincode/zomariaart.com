@@ -157,6 +157,57 @@ class AdminController {
         redirect(BASE_URL . 'index.php?page=admin&action=viewOrder&id=' . $orderId);
     }
     
+    public function updatePaymentStatus() {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            redirect(BASE_URL . 'index.php?page=admin&action=orders');
+            return;
+        }
+        
+        $orderId = $_POST['order_id'] ?? null;
+        $status = $_POST['payment_status'] ?? null;
+        
+        if ($orderId && $status) {
+            $this->orderModel->updatePaymentStatus($orderId, $status);
+            setFlashMessage('success', 'Payment status updated');
+        }
+        
+        redirect(BASE_URL . 'index.php?page=admin&action=viewOrder&id=' . $orderId);
+    }
+    
+    // Payment Management Dashboard
+    public function payments() {
+        $orders = $this->orderModel->getAll([]);
+        
+        // Calculate payment statistics
+        $stats = [
+            'total_revenue' => 0,
+            'pending_payments' => 0,
+            'completed_payments' => 0,
+            'failed_payments' => 0
+        ];
+        
+        foreach ($orders as $order) {
+            if ($order['payment_status'] === 'completed') {
+                $stats['total_revenue'] += $order['total'];
+                $stats['completed_payments']++;
+            } elseif ($order['payment_status'] === 'pending') {
+                $stats['pending_payments']++;
+            } elseif ($order['payment_status'] === 'failed') {
+                $stats['failed_payments']++;
+            }
+        }
+        
+        $data = [
+            'title' => 'Payment Management',
+            'orders' => $orders,
+            'stats' => $stats
+        ];
+        
+        require_once APP_PATH . '/views/layouts/admin_header.php';
+        require_once APP_PATH . '/views/admin/payments.php';
+        require_once APP_PATH . '/views/layouts/admin_footer.php';
+    }
+    
     // Class Management
     public function classes() {
         $classes = $this->classModel->getAll();

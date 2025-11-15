@@ -45,6 +45,16 @@
                     <li><a href="<?php echo BASE_URL; ?>index.php?page=teaching">Classes</a></li>
                     <li><a href="<?php echo BASE_URL; ?>index.php?page=about">About</a></li>
                     <li><a href="<?php echo BASE_URL; ?>index.php?page=contact">Contact</a></li>
+                    <?php if (isLoggedIn()): ?>
+                        <?php if (isAdmin()): ?>
+                            <li><a href="<?php echo BASE_URL; ?>index.php?page=admin">Admin</a></li>
+                        <?php else: ?>
+                            <li><a href="<?php echo BASE_URL; ?>index.php?page=client">My Account</a></li>
+                        <?php endif; ?>
+                        <li><a href="<?php echo BASE_URL; ?>index.php?page=logout">Logout</a></li>
+                    <?php else: ?>
+                        <li><a href="<?php echo BASE_URL; ?>index.php?page=login">Login</a></li>
+                    <?php endif; ?>
                     <li><a href="<?php echo BASE_URL; ?>index.php?page=cart" class="cart-icon" aria-label="Shopping Cart">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>

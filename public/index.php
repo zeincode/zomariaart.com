@@ -133,6 +133,24 @@ switch ($page) {
         }
         break;
         
+    case 'client':
+    case 'account':
+        requireLogin();
+        require_once APP_PATH . '/controllers/ClientController.php';
+        $controller = new ClientController();
+        
+        if (isset($_GET['action'])) {
+            $action = sanitize($_GET['action']);
+            if (method_exists($controller, $action)) {
+                $controller->$action();
+            } else {
+                $controller->index();
+            }
+        } else {
+            $controller->index();
+        }
+        break;
+        
     default:
         http_response_code(404);
         require_once APP_PATH . '/views/errors/404.php';

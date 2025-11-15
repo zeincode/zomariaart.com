@@ -74,6 +74,20 @@ class ClassModel {
     }
     
     /**
+     * Get enrollments by student email
+     */
+    public function getEnrollmentsByEmail($email) {
+        $sql = "SELECT e.*, c.title, c.description, c.date, c.time, c.location, c.price 
+                FROM class_enrollments e 
+                JOIN classes c ON e.class_id = c.id 
+                WHERE e.student_email = :email 
+                ORDER BY c.date DESC, c.time DESC";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([':email' => $email]);
+        return $stmt->fetchAll();
+    }
+    
+    /**
      * Create new class
      */
     public function create($data) {

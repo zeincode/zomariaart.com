@@ -102,7 +102,25 @@
                 </select>
             </div>
             
-            <button type="submit" class="btn btn-primary">Update Status</button>
+            <button type="submit" class="btn btn-primary">Update Order Status</button>
+        </form>
+        
+        <h3 style="margin-top: 2rem;">Update Payment Status</h3>
+        <form method="POST" action="<?php echo BASE_URL; ?>index.php?page=admin&action=updatePaymentStatus">
+            <input type="hidden" name="csrf_token" value="<?php echo $data['csrf_token']; ?>">
+            <input type="hidden" name="order_id" value="<?php echo $data['order']['id']; ?>">
+            
+            <div class="form-group">
+                <label for="payment_status">Payment Status:</label>
+                <select id="payment_status" name="payment_status">
+                    <option value="pending" <?php echo $data['order']['payment_status'] === 'pending' ? 'selected' : ''; ?>>Pending</option>
+                    <option value="completed" <?php echo $data['order']['payment_status'] === 'completed' ? 'selected' : ''; ?>>Completed</option>
+                    <option value="failed" <?php echo $data['order']['payment_status'] === 'failed' ? 'selected' : ''; ?>>Failed</option>
+                    <option value="refunded" <?php echo $data['order']['payment_status'] === 'refunded' ? 'selected' : ''; ?>>Refunded</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Update Payment Status</button>
         </form>
     </div>
     

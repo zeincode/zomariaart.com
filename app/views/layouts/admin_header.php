@@ -24,6 +24,9 @@
                 <a href="<?php echo BASE_URL; ?>index.php?page=admin&action=orders" class="admin-nav-link">
                     Orders
                 </a>
+                <a href="<?php echo BASE_URL; ?>index.php?page=admin&action=payments" class="admin-nav-link">
+                    Payments
+                </a>
                 <a href="<?php echo BASE_URL; ?>index.php?page=admin&action=classes" class="admin-nav-link">
                     Classes
                 </a>
