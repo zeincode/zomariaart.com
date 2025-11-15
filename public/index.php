@@ -110,6 +110,17 @@ switch ($page) {
         }
         break;
         
+    case 'register':
+        require_once APP_PATH . '/controllers/AuthController.php';
+        $controller = new AuthController();
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller->register();
+        } else {
+            $controller->showRegister();
+        }
+        break;
+        
     case 'logout':
         require_once APP_PATH . '/controllers/AuthController.php';
         $controller = new AuthController();
