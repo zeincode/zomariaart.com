@@ -5,7 +5,7 @@
 
 // Site settings
 define('SITE_NAME', "Zo's Art Gallery");
-define('SITE_URL', 'https://zomariaart.com');
+define('SITE_URL', 'http://zomariaart.local');
 define('SITE_EMAIL', 'contact@zomariaart.com');
 
 // Path settings
@@ -23,7 +23,7 @@ define('IMAGES_URL', ASSETS_URL . 'images/');
 
 // Security settings
 define('SESSION_LIFETIME', 3600); // 1 hour
-define('ENABLE_HTTPS', true);
+define('ENABLE_HTTPS', false); // Disabled for local development
 
 // Payment settings (to be configured)
 define('STRIPE_PUBLIC_KEY', 'pk_test_your_stripe_key_here');
