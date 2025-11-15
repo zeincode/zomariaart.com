@@ -1,6 +1,11 @@
 <div class="hero-section">
+    <div class="hero-slideshow">
+        <div class="hero-slide active" style="background-image: url('<?php echo IMAGES_URL; ?>placeholder/Studio (1).jpg');"></div>
+        <div class="hero-slide" style="background-image: url('<?php echo IMAGES_URL; ?>placeholder/Studio (2).jpg');"></div>
+        <div class="hero-slide" style="background-image: url('<?php echo IMAGES_URL; ?>placeholder/Studio (3).jpg');"></div>
+    </div>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
-        <h1 class="hero-title">Welcome to Zo's Art Gallery</h1>
         <p class="hero-subtitle">Discover unique original artwork and join our creative community</p>
         <div class="hero-buttons">
             <a href="<?php echo BASE_URL; ?>index.php?page=gallery" class="btn btn-primary">Browse Gallery</a>
@@ -8,27 +13,6 @@
         </div>
     </div>
 </div>
-
-<section class="about-preview container">
-    <h2>About the Artist</h2>
-    <div class="about-content">
-        <div class="about-text">
-            <p>
-                Welcome! I'm Zo, a passionate artist dedicated to creating vibrant and meaningful artwork. 
-                My work explores themes of nature, emotion, and the human experience through various media including 
-                acrylics, watercolors, and mixed media.
-            </p>
-            <p>
-                In addition to creating art, I love sharing my passion through teaching. Join me in exploring 
-                your own creativity through hands-on workshops and classes.
-            </p>
-            <a href="<?php echo BASE_URL; ?>index.php?page=about" class="btn btn-link">Learn More About Zo →</a>
-        </div>
-        <div class="about-image">
-            <img src="<?php echo IMAGES_URL; ?>placeholder/artist-photo.jpg" alt="Artist Zo" loading="lazy">
-        </div>
-    </div>
-</section>
 
 <section class="featured-artwork container">
     <h2>Featured Artwork</h2>

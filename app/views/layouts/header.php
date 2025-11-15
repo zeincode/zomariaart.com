@@ -7,6 +7,9 @@
     <meta name="keywords" content="art gallery, artwork, paintings, art classes, artist Zo">
     <title><?php echo $data['title'] ?? SITE_NAME; ?></title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="<?php echo IMAGES_URL; ?>watermark/logo.png">
+    
     <!-- CSS -->
     <link rel="stylesheet" href="<?php echo ASSETS_URL; ?>css/style.css">
     
@@ -26,11 +29,8 @@
             <div class="container">
                 <div class="header-branding">
                     <a href="<?php echo BASE_URL; ?>index.php?page=home" class="logo">
-                        <h1><?php echo SITE_NAME; ?></h1>
+                        <img src="<?php echo IMAGES_URL; ?>placeholder/Zo_s_Logo.png" alt="<?php echo SITE_NAME; ?>" class="logo-image">
                     </a>
-                    <p class="header-tagline">
-                        <?php echo $data['header_tagline'] ?? 'Echoes of Light — Current Exhibition'; ?>
-                    </p>
                 </div>
 
                 <button class="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
@@ -45,7 +45,23 @@
                     <li><a href="<?php echo BASE_URL; ?>index.php?page=teaching">Classes</a></li>
                     <li><a href="<?php echo BASE_URL; ?>index.php?page=about">About</a></li>
                     <li><a href="<?php echo BASE_URL; ?>index.php?page=contact">Contact</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>index.php?page=cart">Cart</a></li>
+                    <?php if (isLoggedIn()): ?>
+                        <?php if (isAdmin()): ?>
+                            <li><a href="<?php echo BASE_URL; ?>index.php?page=admin">Admin</a></li>
+                        <?php else: ?>
+                            <li><a href="<?php echo BASE_URL; ?>index.php?page=client">My Account</a></li>
+                        <?php endif; ?>
+                        <li><a href="<?php echo BASE_URL; ?>index.php?page=logout">Logout</a></li>
+                    <?php else: ?>
+                        <li><a href="<?php echo BASE_URL; ?>index.php?page=login">Login</a></li>
+                    <?php endif; ?>
+                    <li><a href="<?php echo BASE_URL; ?>index.php?page=cart" class="cart-icon" aria-label="Shopping Cart">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                    </a></li>
                 </ul>
             </div>
         </nav>

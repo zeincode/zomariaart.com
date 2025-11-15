@@ -155,6 +155,23 @@ if ('loading' in HTMLImageElement.prototype) {
     });
 }
 
+// Hero slideshow
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.hero-slide');
+    if (slides.length > 0) {
+        let currentSlide = 0;
+        
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        // Change slide every 5 seconds
+        setInterval(nextSlide, 5000);
+    }
+});
+
 // Console welcome message
 console.log('%cWelcome to Zo\'s Art Gallery!', 'font-size: 20px; font-weight: bold; color: #2c3e50;');
 console.log('%cAll artwork is protected by copyright.', 'font-size: 14px; color: #e74c3c;');

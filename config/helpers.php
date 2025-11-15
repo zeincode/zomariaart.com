@@ -69,6 +69,15 @@ function requireAdmin() {
 }
 
 /**
+ * Require user to be logged in
+ */
+function requireLogin() {
+    if (!isLoggedIn()) {
+        redirect(BASE_URL . 'index.php?page=login');
+    }
+}
+
+/**
  * Format price
  */
 function formatPrice($price) {

@@ -110,6 +110,17 @@ switch ($page) {
         }
         break;
         
+    case 'register':
+        require_once APP_PATH . '/controllers/AuthController.php';
+        $controller = new AuthController();
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller->register();
+        } else {
+            $controller->showRegister();
+        }
+        break;
+        
     case 'logout':
         require_once APP_PATH . '/controllers/AuthController.php';
         $controller = new AuthController();
@@ -120,6 +131,24 @@ switch ($page) {
         requireAdmin();
         require_once APP_PATH . '/controllers/AdminController.php';
         $controller = new AdminController();
+        
+        if (isset($_GET['action'])) {
+            $action = sanitize($_GET['action']);
+            if (method_exists($controller, $action)) {
+                $controller->$action();
+            } else {
+                $controller->index();
+            }
+        } else {
+            $controller->index();
+        }
+        break;
+        
+    case 'client':
+    case 'account':
+        requireLogin();
+        require_once APP_PATH . '/controllers/ClientController.php';
+        $controller = new ClientController();
         
         if (isset($_GET['action'])) {
             $action = sanitize($_GET['action']);
